@@ -44,7 +44,7 @@ export async function procurarTarefas(){
 }
 
 
-export async function procurarTarefaPorDescricao(descricao){
+export async function procurarTarefaPorId(id){
 
     const command = ` 
     
@@ -55,11 +55,11 @@ export async function procurarTarefaPorDescricao(descricao){
         duracao,
         importancia
         from tb_tarefas
-        where id_descricao = ?
+        where id_tarefa = ?
 
     `;
 
-    let response = await con.query(command, [descricao]);
+    let response = await con.query(command, [id]);
 
     let results = response[0];
 
